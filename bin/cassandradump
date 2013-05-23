@@ -6,7 +6,7 @@ import sys
 import cassandratools
 
 def main():
-    parser = argparse.ArgumentParser(usage=u'Dump data from a cassandra column family into csv format')
+    parser = argparse.ArgumentParser(description=u'Dump data from a cassandra column family into csv format')
     parser.add_argument(u'--host', default=u'localhost', help=u'Cassandra host to connect to (defaults to localhost)')
     parser.add_argument(u'--port', default=9160, type=int, help=u'Cassandra port to connect to (defaults to 9160)')
     parser.add_argument(u'-c', u'--columns', default=[], help=(u'Specify a subset of columns to dump.  If you do not '
