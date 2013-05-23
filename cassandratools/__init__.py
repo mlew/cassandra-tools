@@ -11,7 +11,7 @@ def columnfamily_dump(host, port, keyspace, columnfamily, columns, limit, outfil
     col_fam = ColumnFamily(pool, columnfamily)
 
     if columns:
-        keys = columns.split(u',')
+        keys = set(columns.split(u','))
     else:
         rows = col_fam.get_range(row_count=limit)
         keys = set(key for key in itertools.chain.from_iterable(row[1].iterkeys() for row in rows))
