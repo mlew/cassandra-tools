@@ -15,8 +15,6 @@ def main():
     parser.add_argument(u'keyspace')
     parser.add_argument(u'columnfamily')
     parser.add_argument(u'-l', u'--limit', default=None, type=int, help=u'How many rows to dump')
-    parser.add_argument(u'--buffer-size', default=10, type=int,
-            help=u'Set the pycassa column family buffer size. Value is the the exponent in 2**x (default=10)')
 
     args = parser.parse_args()
 
