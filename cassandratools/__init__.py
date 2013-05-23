@@ -15,7 +15,8 @@ def columnfamily_dump(host, port, keyspace, columnfamily, columns, limit, outfil
     else:
         rows = col_fam.get_range(row_count=limit)
         keys = set(key for key in itertools.chain.from_iterable(row[1].iterkeys() for row in rows))
-        keys.add(u'{}_id'.format(columnfamily))
+
+    keys.add(u'{}_id'.format(columnfamily))
 
     writer = csv.DictWriter(outfile, keys, extrasaction=u'ignore')
     writer.writeheader()
