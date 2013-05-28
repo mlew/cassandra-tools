@@ -16,11 +16,12 @@ def main():
     parser.add_argument(u'columnfamily')
     parser.add_argument(u'-l', u'--limit', default=None, type=int, help=u'How many rows to dump')
     parser.add_argument(u'--no-header',action='store_false', help=u'Suppress the header from the output')
+    parser.add_argument(u'--delimiter', default=None, help=u'Specify a custom delimiter')
 
     args = parser.parse_args()
 
     cassandratools.columnfamily_dump(args.host, args.port, args.keyspace, args.columnfamily, args.columns, args.limit,
-            sys.stdout, args.no_header)
+            sys.stdout, args.no_header, args.delimiter)
 
 
 if __name__ == u'__main__':

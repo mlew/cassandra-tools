@@ -6,7 +6,7 @@ from pycassa.pool import ConnectionPool
 from pycassa.columnfamily import ColumnFamily
 
 
-def columnfamily_dump(host, port, keyspace, columnfamily, columns, limit, outfile, header):
+def columnfamily_dump(host, port, keyspace, columnfamily, columns, limit, outfile, header, delimiter):
     pool = ConnectionPool(keyspace, ['{}:{}'.format(host, port)], timeout=None)
     col_fam = ColumnFamily(pool, columnfamily)
 
@@ -18,7 +18,8 @@ def columnfamily_dump(host, port, keyspace, columnfamily, columns, limit, outfil
 
     keys.add(u'{}_id'.format(columnfamily))
 
-    writer = csv.DictWriter(outfile, keys, extrasaction=u'ignore')
+    d = delimiter or u','
+    writer = csv.DictWriter(outfile, keys, extrasaction=u'ignore', delimiter=d)
 
     if header:
         writer.writeheader()
