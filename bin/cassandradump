@@ -16,7 +16,7 @@ def main():
     parser.add_argument(u'columnfamily')
     parser.add_argument(u'-l', u'--limit', default=None, type=int, help=u'How many rows to dump')
     parser.add_argument(u'--no-header',action='store_false', help=u'Suppress the header from the output')
-    parser.add_argument(u'--delimiter', default=u',', help=u'Specify a custom delimiter')
+    parser.add_argument(u'--delimiter', default=',', help=u'Specify a custom delimiter')
 
     args = parser.parse_args()
 
