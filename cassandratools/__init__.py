@@ -18,8 +18,7 @@ def columnfamily_dump(host, port, keyspace, columnfamily, columns, limit, outfil
 
     keys.add(u'{}_id'.format(columnfamily))
 
-    d = delimiter or u','
-    writer = csv.DictWriter(outfile, keys, extrasaction=u'ignore', delimiter=d)
+    writer = csv.DictWriter(outfile, keys, extrasaction=u'ignore', delimiter=delimiter)
 
     if header:
         writer.writeheader()
