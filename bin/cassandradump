@@ -20,7 +20,7 @@ def main():
     args = parser.parse_args()
 
     cassandratools.columnfamily_dump(args.host, args.port, args.keyspace, args.columnfamily, args.columns, args.limit,
-            sys.stdout)
+            sys.stdout, args.no_header)
 
 
 if __name__ == u'__main__':
